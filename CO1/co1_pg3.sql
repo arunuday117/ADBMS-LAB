@@ -1,6 +1,8 @@
+Drop database employee;
 CREATE DATABASE employee;
 USE employee;
 CREATE table employee(empno VARCHAR(20) NOT NULL PRIMARY KEY,emp_name VARCHAR(20) NOT NULL,dept VARCHAR(20) NOT NULL,salary INT NOT NULL,dob DATE NOT NULL,branch VARCHAR(20) NOT NULL);
+DESCRIBE employee;
 INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E101','Amit','Production',45000,'2000-03-12','Bangalore');
 INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E102','Amit','HR',70000,'2002-07-03','Bangalore');
 INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E103','sunita','Manager',120000,'2001-01-11','Mysore');
