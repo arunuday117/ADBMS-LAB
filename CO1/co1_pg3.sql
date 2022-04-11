@@ -1,6 +1,8 @@
+ SET autocommit = 0;  
 Drop database employee;
 CREATE DATABASE employee;
 USE employee;
+START transaction;
 CREATE table employee(empno VARCHAR(20) NOT NULL PRIMARY KEY,emp_name VARCHAR(20) NOT NULL,dept VARCHAR(20) NOT NULL,salary INT NOT NULL,dob DATE NOT NULL,branch VARCHAR(20) NOT NULL);
 DESCRIBE employee;
 INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E101','Amit','Production',45000,'2000-03-12','Bangalore');
@@ -17,4 +19,17 @@ SELECT sum(salary),emp_name,count(emp_name) FROM employee GROUP BY emp_name HAVI
 SELECT * FROM employee WHERE salary>120000;
 SELECT emp_name FROM employee ORDER BY emp_name desc;
 SELECT * FROM employee WHERE emp_name="Amit" AND salary>50000;
+Drop table employee;
+Drop table employee;
 TRUNCATE employee;
+commit;
+INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E110','Xavier','Manager',120230,'2001-01-11','Mysore');
+SAVEPOINT A;
+DELETE FROM employee WHERE empno='E106';
+savepoint b;
+INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E107','monson','Manager',120230,'2001-01-11','Mysore');
+savepoint c;
+rollback to A;
+GRANT ALL ON employee TO 'hai'@'localhost';
+REVOKE DELETE ON employee FROM 'hai'@'localhost'; 
+SHOW GRANTS FOR 'hai'@'localhost';
