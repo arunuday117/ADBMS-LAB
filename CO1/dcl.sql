@@ -30,7 +30,11 @@ savepoint b;
 INSERT INTO employee (empno,emp_name,dept,salary,dob,branch) VALUES ('E130','monson','Manager',120230,'2001-01-11','Mysore');
 savepoint c;
 rollback to A;
-GRANT DELETE ON employee TO 'hai'@'localhost';
-REVOKE DELETE ON employee FROM 'hai'@'localhost'; 
-REVOKE DELETE ON *.* FROM 'hai'@'localhost';
-SHOW GRANTS FOR 'hai'@'localhost';
+use employee;
+GRANT ALL ON *.* TO 'heylo'@'localhost';
+GRANT ALL ON employee TO 'heylo'@'localhost';
+GRANT ALL ON movies TO 'heylo'@'localhost';
+REVOKE DELETE ON employee FROM 'heylo'@'localhost'; 
+REVOKE DELETE ON *.* FROM 'heylo'@'localhost';
+SHOW GRANTS FOR 'heylo'@'localhost';
+
