@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "6278a39781ce975f1349a632"
+  },
+  "srn": 101,
+  "s_name": "Abhi",
+  "degree": "bsc",
+  "sem": 2,
+  "cgpa": 8.5
+},{
+  "_id": {
+    "$oid": "6278a64a81ce975f1349a633"
+  },
+  "srn": 102,
+  "s_name": "Akhil",
+  "degree": "bcom",
+  "sem": 1,
+  "cgpa": 5.6
+},{
+  "_id": {
+    "$oid": "6278a70981ce975f1349a634"
+  },
+  "srn": 103,
+  "s_name": "Akshaya",
+  "degree": "bca",
+  "sem": 6,
+  "cgpa": 7
+},{
+  "_id": {
+    "$oid": "6278a70981ce975f1349a635"
+  },
+  "srn": 104,
+  "s_name": "Ashik",
+  "degree": "bca",
+  "sem": 6,
+  "cgpa": 7
+},{
+  "_id": {
+    "$oid": "6278a70981ce975f1349a636"
+  },
+  "srn": 105,
+  "s_name": "Aswadev",
+  "degree": "bca",
+  "sem": 5,
+  "cgpa": 7
+},{
+  "_id": {
+    "$oid": "6278a78881ce975f1349a637"
+  },
+  "srn": 106,
+  "s_name": "Bharath",
+  "degree": "bca",
+  "sem": 1,
+  "cgpa": 4
+},{
+  "_id": {
+    "$oid": "6278a78881ce975f1349a638"
+  },
+  "srn": 107,
+  "s_name": "Rahul",
+  "degree": "bca",
+  "sem": 6,
+  "cgpa": 7
+},{
+  "_id": {
+    "$oid": "6278a78881ce975f1349a639"
+  },
+  "srn": 108,
+  "s_name": "Rahul",
+  "degree": "bcom",
+  "sem": 5,
+  "cgpa": 7
+},{
+  "_id": {
+    "$oid": "6278a7d081ce975f1349a63a"
+  },
+  "srn": 109,
+  "s_name": "Shiva",
+  "degree": "bsc",
+  "sem": 1,
+  "cgpa": 4
+},{
+  "_id": {
+    "$oid": "6278a7d081ce975f1349a63b"
+  },
+  "srn": 110,
+  "s_name": "Shanoop",
+  "degree": "bca",
+  "sem": 6,
+  "cgpa": 7
+}]
