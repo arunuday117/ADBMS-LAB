@@ -1,0 +1,220 @@
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs1\1.log -dbpath \data\rs1 --port 27018
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs2\1.log -dbpath \data\rs2 --port 27019
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs3\1.log -dbpath \data\rs3 --port 27020
+###new cmd --1
+C:\Program Files\MongoDB\Server\5.0\bin>mongo --port 27018
+> config={_id:"qwerty",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+{
+        "_id" : "qwerty",
+        "members" : [
+                {
+                        "_id" : 0,
+                        "host" : "localhost:27018"
+                },
+                {
+                        "_id" : 1,
+                        "host" : "localhost:27019"
+                },
+                {
+                        "_id" : 2,
+                        "host" : "localhost:27020"
+                }
+        ]
+}
+> rs.initiate(config)
+{ "ok" : 1 }
+qwerty:SECONDARY> rs.status
+function() {
+    return db._adminCommand("replSetGetStatus");
+}
+qwerty:SECONDARY> rs.status
+function() {
+    return db._adminCommand("replSetGetStatus");
+}
+qwerty:PRIMARY> rs.status()
+{
+        "set" : "qwerty",
+        "date" : ISODate("2022-05-31T06:35:14.226Z"),
+        "myState" : 1,
+        "term" : NumberLong(1),
+        "syncSourceHost" : "",
+        "syncSourceId" : -1,
+        "heartbeatIntervalMillis" : NumberLong(2000),
+        "majorityVoteCount" : 2,
+        "writeMajorityCount" : 2,
+        "votingMembersCount" : 3,
+        "writableVotingMembersCount" : 3,
+        "optimes" : {
+                "lastCommittedOpTime" : {
+                        "ts" : Timestamp(1653978905, 1),
+                        "t" : NumberLong(1)
+                },
+                "lastCommittedWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                "readConcernMajorityOpTime" : {
+                        "ts" : Timestamp(1653978905, 1),
+                        "t" : NumberLong(1)
+                },
+                "appliedOpTime" : {
+                        "ts" : Timestamp(1653978905, 1),
+                        "t" : NumberLong(1)
+                },
+                "durableOpTime" : {
+                        "ts" : Timestamp(1653978905, 1),
+                        "t" : NumberLong(1)
+                },
+                "lastAppliedWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                "lastDurableWallTime" : ISODate("2022-05-31T06:35:05.169Z")
+        },
+        "lastStableRecoveryTimestamp" : Timestamp(1653978885, 1),
+        "electionCandidateMetrics" : {
+                "lastElectionReason" : "electionTimeout",
+                "lastElectionDate" : ISODate("2022-05-31T06:27:04.614Z"),
+                "electionTerm" : NumberLong(1),
+                "lastCommittedOpTimeAtElection" : {
+                        "ts" : Timestamp(1653978412, 1),
+                        "t" : NumberLong(-1)
+                },
+                "lastSeenOpTimeAtElection" : {
+                        "ts" : Timestamp(1653978412, 1),
+                        "t" : NumberLong(-1)
+                },
+                "numVotesNeeded" : 2,
+                "priorityAtElection" : 1,
+                "electionTimeoutMillis" : NumberLong(10000),
+                "numCatchUpOps" : NumberLong(0),
+                "newTermStartDate" : ISODate("2022-05-31T06:27:04.988Z"),
+                "wMajorityWriteAvailabilityDate" : ISODate("2022-05-31T06:27:06.379Z")
+        },
+        "members" : [
+                {
+                        "_id" : 0,
+                        "name" : "localhost:27018",
+                        "health" : 1,
+                        "state" : 1,
+                        "stateStr" : "PRIMARY",
+                        "uptime" : 1435,
+                        "optime" : {
+                                "ts" : Timestamp(1653978905, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2022-05-31T06:35:05Z"),
+                        "lastAppliedWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                        "lastDurableWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                        "syncSourceHost" : "",
+                        "syncSourceId" : -1,
+                        "infoMessage" : "",
+                        "electionTime" : Timestamp(1653978424, 1),
+                        "electionDate" : ISODate("2022-05-31T06:27:04Z"),
+                        "configVersion" : 1,
+                        "configTerm" : 1,
+                        "self" : true,
+                        "lastHeartbeatMessage" : ""
+                },
+                {
+                        "_id" : 1,
+                        "name" : "localhost:27019",
+                        "health" : 1,
+                        "state" : 2,
+                        "stateStr" : "SECONDARY",
+                        "uptime" : 501,
+                        "optime" : {
+                                "ts" : Timestamp(1653978905, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDurable" : {
+                                "ts" : Timestamp(1653978905, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2022-05-31T06:35:05Z"),
+                        "optimeDurableDate" : ISODate("2022-05-31T06:35:05Z"),
+                        "lastAppliedWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                        "lastDurableWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                        "lastHeartbeat" : ISODate("2022-05-31T06:35:13.009Z"),
+                        "lastHeartbeatRecv" : ISODate("2022-05-31T06:35:12.558Z"),
+                        "pingMs" : NumberLong(0),
+                        "lastHeartbeatMessage" : "",
+                        "syncSourceHost" : "localhost:27018",
+                        "syncSourceId" : 0,
+                        "infoMessage" : "",
+                        "configVersion" : 1,
+                        "configTerm" : 1
+                },
+                {
+                        "_id" : 2,
+                        "name" : "localhost:27020",
+                        "health" : 1,
+                        "state" : 2,
+                        "stateStr" : "SECONDARY",
+                        "uptime" : 501,
+                        "optime" : {
+                                "ts" : Timestamp(1653978905, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDurable" : {
+                                "ts" : Timestamp(1653978905, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2022-05-31T06:35:05Z"),
+                        "optimeDurableDate" : ISODate("2022-05-31T06:35:05Z"),
+                        "lastAppliedWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                        "lastDurableWallTime" : ISODate("2022-05-31T06:35:05.169Z"),
+                        "lastHeartbeat" : ISODate("2022-05-31T06:35:13.018Z"),
+                        "lastHeartbeatRecv" : ISODate("2022-05-31T06:35:12.613Z"),
+                        "pingMs" : NumberLong(0),
+                        "lastHeartbeatMessage" : "",
+                        "syncSourceHost" : "localhost:27018",
+                        "syncSourceId" : 0,
+                        "infoMessage" : "",
+                        "configVersion" : 1,
+                        "configTerm" : 1
+                }
+        ],
+        "ok" : 1,
+        "$clusterTime" : {
+                "clusterTime" : Timestamp(1653978905, 1),
+                "signature" : {
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+                        "keyId" : NumberLong(0)
+                }
+        },
+        "operationTime" : Timestamp(1653978905, 1)
+}
+qwerty:PRIMARY> use newAnu
+switched to db newAnu
+qwerty:PRIMARY> db.Anu.insert({"name":"hari"})
+WriteResult({ "nInserted" : 1 })
+qwerty:PRIMARY> db.Anu.find()
+{ "_id" : ObjectId("6295b7fddf4ca5a194d0a706"), "name" : "hari" }
+
+###slave 27019
+###set secondary
+qwerty:SECONDARY> rs.secondaryOk()
+qwerty:SECONDARY> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+newAnu  0.000GB
+qwerty:SECONDARY> use newAnu
+switched to db newAnu
+qwerty:SECONDARY> db.Anu.find()
+{ "_id" : ObjectId("6295b7fddf4ca5a194d0a706"), "name" : "hari" }
+qwerty:SECONDARY> db.Anu.insert({"name":"anu"})
+WriteCommandError({
+        "topologyVersion" : {
+                "processId" : ObjectId("6295b257b25c33e969784a5b"),
+                "counter" : NumberLong(4)
+        },
+        "ok" : 0,
+        "errmsg" : "not master",
+        "code" : 10107,
+        "codeName" : "NotWritablePrimary",
+        "$clusterTime" : {
+                "clusterTime" : Timestamp(1653979465, 1),
+                "signature" : {
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+                        "keyId" : NumberLong(0)
+                }
+        },
+        "operationTime" : Timestamp(1653979465, 1)
+})
+
