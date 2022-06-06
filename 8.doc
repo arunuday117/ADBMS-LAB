@@ -1,1 +1,14 @@
 https://medium.com/analytics-vidhya/connecting-to-mongodb-atlas-with-python-pymongo-5b25dab3ac53
+
+
+
+from pymongo import MongoClient
+
+
+client = MongoClient("mongodb+srv://Admin:admin123@cluster0.edo6o.mongodb.net/?retryWrites=true&w=majority")
+mydatabase=client.gettingStarted
+people=mydatabase.people
+personD={
+    "name":{"first":"Alan","Last":"turing"}
+    }
+people.insert_one(personD)
