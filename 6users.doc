@@ -97,3 +97,15 @@ db.createUser({user:"Arun",pwd:"123",roles:[{role:"readWrite",db:"candidate"}]})
                 "name" : "mark.maths_1"
         }
 ]
+
+###text indexes
+
+> db.comment.insert({"id":102,"name":"Akhil","post":"hello how are you"})
+WriteResult({ "nInserted" : 1 })
+> db.comment.insert({"id":103,"name":"Abin","post":"Never look back"})
+WriteResult({ "nInserted" : 1 })
+> db.comment.insert({"id":104,"name":"Binu","post":"Person exists"})
+WriteResult({ "nInserted" : 1 })
+> db.comment.insert({"id":105,"name":"Sonu","post":"Look out for you"})
+WriteResult({ "nInserted" : 1 })
+
